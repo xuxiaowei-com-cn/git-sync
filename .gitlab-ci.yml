@@ -11,7 +11,7 @@ sync-gitee:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git remote add gitee https://gitee.com/xuxiaowei-com-cn/git-sync.git
-    - git push -u gitee $CI_COMMIT_BRANCH
+    - git push -u gitee $CI_COMMIT_BRANCH --force
   rules:
     # 非 PR 时触发
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
