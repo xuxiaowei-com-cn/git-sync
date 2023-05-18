@@ -30,10 +30,7 @@ sync-gitcode:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
-    - git remote add gitcode https://gitcode.net/xuxiaowei-com-cn/git-sync.git
-    - git config --global credential.helper store
-    - git config --global credential.https://gitcode.net.username qq_32596527
-    - git config --global credential.https://gitcode.net.password $GITCODE_PRIVATE_TOKEN
+    - git remote add gitcode https://qq_32596527:$GITCODE_PRIVATE_TOKEN@gitcode.net/xuxiaowei-com-cn/git-sync.git
     - git push -u gitcode $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
