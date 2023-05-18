@@ -49,7 +49,11 @@ sync-gitlink:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
-    - git remote add gitlink https://xuxiaowei:$GITLINK_PRIVATE_TOKEN@gitlink.org.cn/xuxiaowei-com-cn/git-sync.git
+    # - git remote add gitlink https://xuxiaowei:$GITLINK_PRIVATE_TOKEN@gitlink.org.cn/xuxiaowei-com-cn/git-sync.git
+    - git remote add gitlink https://gitlink.org.cn/xuxiaowei-com-cn/git-sync.git
+    - git config --global credential.helper store
+    - git config --global credential.https://gitlink.org.cn.username xuxiaowei
+    - git config --global credential.https://gitlink.org.cn.password $GITLINK_PRIVATE_TOKEN
     - git push -u gitlink $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
