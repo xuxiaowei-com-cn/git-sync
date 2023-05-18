@@ -36,3 +36,4 @@ sync-github:
   rules:
     # 非 PR 时触发
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+  retry: 2
