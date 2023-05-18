@@ -15,6 +15,7 @@ sync-gitee:
     - git config --global credential.helper store
     - git config --global credential.https://gitee.com.username xuxiaowei-com-cn
     - git config --global credential.https://gitee.com.password $GITEE_PRIVATE_TOKEN
+    - cat ~/.gitconfig
     - git push -u gitee $CI_COMMIT_BRANCH --force
   rules:
     # 非 PR 时触发
