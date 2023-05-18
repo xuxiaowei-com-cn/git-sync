@@ -32,7 +32,7 @@ sync-github:
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
     - git remote add github https://$GITHUB_PRIVATE_TOKEN@github.com/xuxiaowei-com-cn/git-sync.git
-    - git push -u github $CI_COMMIT_BRANCH --force
+    - git push -u github $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
