@@ -15,7 +15,6 @@ sync-gitee:
     - git config --global credential.helper store
     - git config --global credential.https://gitee.com.username xuxiaowei-com-cn
     - git config --global credential.https://gitee.com.password $GITEE_PRIVATE_TOKEN
-    - cat ~/.gitconfig
     - git push -u gitee $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
@@ -31,7 +30,10 @@ sync-gitcode:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
-    - git remote add gitcode https://$GITCODE_PRIVATE_TOKEN@gitcode.net/xuxiaowei-com-cn/git-sync.git
+    - git remote add gitcode https://gitcode.net/xuxiaowei-com-cn/git-sync.git
+    - git config --global credential.helper store
+    - git config --global credential.https://gitcode.com.username xuxiaowei-com-cn
+    - git config --global credential.https://gitcode.com.password $GITCODE_PRIVATE_TOKEN
     - git push -u gitcode $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
