@@ -33,6 +33,22 @@ sync-gitcode:
     # 非 PR 时触发
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
 
+sync-gitlab:
+  stage: sync
+  image: bitnami/git:2.40.1
+  script:
+    - git config --global user.email $GITLAB_USER_EMAIL
+    - git config --global user.name $GITLAB_USER_NAME
+    - git config --global user.email
+    - git config --global user.name
+    - echo 当前分支：$CI_COMMIT_BRANCH
+    - git checkout -b $CI_COMMIT_BRANCH
+    - git remote add gitlab https://xuxiaowei-com-cn:$GITLAB_PRIVATE_TOKEN@gitlab.com/xuxiaowei-com-cn/git-sync.git
+    - git push -u gitlab $CI_COMMIT_BRANCH
+  rules:
+    # 非 PR 时触发
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+
 sync-github:
   stage: sync
   image: bitnami/git:2.40.1
