@@ -3,6 +3,8 @@ stages:
 
 sync-gitee:
   stage: sync
+  variables:
+    GIT_DEPTH: 0 # 取消浅层克隆
   image: bitnami/git:2.40.1
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
@@ -19,6 +21,8 @@ sync-gitee:
 
 sync-gitcode:
   stage: sync
+  variables:
+    GIT_DEPTH: 0 # 取消浅层克隆
   image: bitnami/git:2.40.1
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
@@ -35,6 +39,8 @@ sync-gitcode:
 
 sync-gitlab:
   stage: sync
+  variables:
+    GIT_DEPTH: 0 # 取消浅层克隆
   image: bitnami/git:2.40.1
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
@@ -51,6 +57,8 @@ sync-gitlab:
 
 sync-github:
   stage: sync
+  variables:
+    GIT_DEPTH: 0 # 取消浅层克隆
   image: bitnami/git:2.40.1
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
