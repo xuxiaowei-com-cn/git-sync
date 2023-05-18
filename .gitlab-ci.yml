@@ -22,8 +22,6 @@ sync-gitee:
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
 
 sync-gitcode:
-  variables:
-    GIT_SSL_NO_VERIFY: "true"
   stage: sync
   image: bitnami/git:2.40.1
   script:
@@ -33,7 +31,7 @@ sync-gitcode:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
-    - git remote add gitcode https://$GITCODE_PRIVATE_TOKEN@gitcode.com/xuxiaowei-com-cn/git-sync.git
+    - git remote add gitcode https://$GITCODE_PRIVATE_TOKEN@gitcode.net/xuxiaowei-com-cn/git-sync.git
     - git push -u gitcode $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
