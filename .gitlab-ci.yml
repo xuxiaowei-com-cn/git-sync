@@ -32,8 +32,8 @@ sync-gitcode:
     - git checkout -b $CI_COMMIT_BRANCH
     - git remote add gitcode https://gitcode.net/xuxiaowei-com-cn/git-sync.git
     - git config --global credential.helper store
-    - git config --global credential.https://gitcode.com.username qq_32596527
-    - git config --global credential.https://gitcode.com.password $GITCODE_PRIVATE_TOKEN
+    - git config --global credential.https://gitcode.net.username qq_32596527
+    - git config --global credential.https://gitcode.net.password $GITCODE_PRIVATE_TOKEN
     - git push -u gitcode $CI_COMMIT_BRANCH
   rules:
     # 非 PR 时触发
