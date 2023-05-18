@@ -5,6 +5,8 @@ sync-gitee:
   stage: sync
   image: bitnami/git:2.40.1
   script:
+    - git config --global user.email
+    - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git remote add gitee https://gitee.com/xuxiaowei-com-cn/git-sync.git
     - git push -u gitee $CI_COMMIT_BRANCH
